@@ -18,6 +18,11 @@ This project explores some of the most overrated snacks from around the world—
 -> Database: MongoDB (for storing user votes and opinions)
 -> Hosting: GitHub Pages / Vercel (Frontend), Heroku / Render (Backend)
 -> Other Tools: Markdown for documentation, GitHub for version control
+# Installation & Setup:
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Configure environment variables
+4. Start development server: `npm run dev`
 
 # Installation & Setup:
 1. Clone the repository
