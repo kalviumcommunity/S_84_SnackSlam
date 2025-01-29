@@ -27,6 +27,12 @@ This project explores some of the most overrated snacks from around the world—
 # Why This Project?
 -> Relatable & Fun: Food discussions are always engaging, and this topic encourages debate.
 -> Cultural Exploration: Helps people discover snacks from around the world.
+# Contributing:
+We welcome contributions! Please:
+1. Fork the repository
+2. Create a feature branch
+3. Submit a Pull Request
+4. Follow our coding standards
 # Skill Development:
 1) Improves frontend and backend development skills.
 2) Enhances database management by handling user-generated votes.
