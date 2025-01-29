@@ -8,7 +8,6 @@ This project explores some of the most overrated snacks from around the world—
 
 # Key Features:
 -> List of Overrated Snacks: A categorized list of snacks from different countries.
-
 -> Reasons for Overrated Status: Explanation of why each snack is considered overhyped.
 -> User Ratings & Opinions: Option for users to vote on whether they agree or disagree.
 -> Fun Facts & Trivia: Interesting background stories behind the snacks.
