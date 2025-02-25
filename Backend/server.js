@@ -1,32 +1,40 @@
-require("dotenv").config();
-const express = require("express");
-const { MongoClient } = require("mongodb");
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const snackRoutes = require('./snackroutes');
 
 const app = express();
 const PORT = 3000;
 
-const client = new MongoClient(process.env.MONGO_URI);
+// Middleware
+app.use(express.json());
 
-async function connectDB() {
-    try {
-        await client.connect();
-        console.log("Database connected successfully");
-    } catch (error) {
-        console.error("Database connection failed:", error.message);
-    }
-}
+// Connect to MongoDB using Mongoose
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Hi, my name is Kartikay Rattan. Server is running at http://localhost:${PORT}`);
+        });
+        console.log('Database connected successfully');
+        // Start the server only after the DB is connected
+    })
+    .catch((error) => {
+        console.error('Database connection failed:', error.message);
+        process.exit(1); // Exit the process with failure
+    });
 
-connectDB();
-
-app.get("/", (req, res) => {
-    const dbStatus = client.topology?.isConnected() ? "Connected" : "Not Connected";
-    res.send(`<h1>Database Status: ${dbStatus}</h1>`);
+// Base route
+app.get('/', (req, res) => {
+    res.send(`<h1>Welcome to SnackSlam API!</h1>`);
 });
 
-app.get("/ping", (req, res) => {
-    res.send("Pong!");
+// Ping route
+app.get('/ping', (req, res) => {
+    res.send('Pong!');
 });
 
-app.listen(PORT, () => {
-    console.log(`Hi, my name is Kartikay Rattan. Server is running at http://localhost:${PORT}`);
-});
+// Use the routes from snackRoutes.js
+app.use('/api', snackRoutes);
