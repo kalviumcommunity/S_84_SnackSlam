@@ -8,7 +8,14 @@ const Snack = require('./schema');
 router.post('/snacks', async (req, res) => {
     try {
         const { name, country, description } = req.body;
-        const snack = new Snack({ name, country, description });
+        if (!name || !country || typeof name !== 'string' || typeof country !== 'string') {
+            return res.status(400).json({ message: 'Invalid input data' });
+        }
+        const snack = new Snack({ 
+            name: name.trim(),
+            country: country.trim(),
+            description: description?.trim()
+        });
         await snack.save();
         res.status(201).json(snack);
     } catch (error) {
