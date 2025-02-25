@@ -37,10 +37,13 @@ router.get('/snacks', async (req, res) => {
 // Update a snack by ID
 router.put('/snacks/:id', async (req, res) => {
     try {
+        if (!req.body || Object.keys(req.body).length === 0) {
+            return res.status(400).json({ message: 'Update data is required' });
+        }
         const updatedSnack = await Snack.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { new: true }
+            { new: true, runValidators: true }
         );
         if (!updatedSnack) {
             return res.status(404).json({ message: 'Snack not found' });
