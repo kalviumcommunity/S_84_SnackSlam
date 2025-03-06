@@ -1,5 +1,10 @@
 # 🍿 SnackSlam: Overrated Snacks - Global Hype vs. Reality
 
+## Deployment Links
+
+- **Backend (Render):** [SnackSlam Backend](https://s-84-snackslam.onrender.com)  
+- **Frontend (Netlify):** [SnackSlam Frontend](https://asap-snackslam.netlify.app)  
+
 ## 🌎 Project Overview
 SnackSlam takes a deep dive into the world’s most **overhyped snacks**—those treats that get all the buzz but often leave taste buds disappointed. We analyze their popularity, common criticisms, and offer **better alternatives**, all while sparking a fun debate on global snack culture. Get ready to challenge the hype! 🍪🔥
 
@@ -41,6 +46,7 @@ SnackSlam takes a deep dive into the world’s most **overhyped snacks**—those
 2. Connect your repository to **Vercel**.
 3. Deploy with **one-click** using Vercel’s dashboard.
 4. Alternatively, enable **GitHub Pages** for static hosting.
+5. Netlify Deployment Link - https://asap-snackslam.netlify.app
 
 ### Backend Deployment (Heroku / Render)
 1. Set up an account on **Heroku** or **Render**.
