@@ -1,42 +1,144 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Reset Defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full-Page Layout */
+body, html {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff6b6b, #ffa502);
+  color: white;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
+  overflow-y: auto; /* Ensures scrolling after login */
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.landing-container, .login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Login Section */
+.login-container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 50px 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ff4757;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #222;
+  font-size: 1rem;
 }
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
+.input-field::placeholder {
   color: #888;
+}
+
+.login-btn {
+  background: #ff4757;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.login-btn:hover {
+  background: #e63946;
+  transform: scale(1.08);
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+}
+
+.welcome-message {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.logout-btn {
+  background: #ff4757;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+  background: #e63946;
+}
+
+.dashboard h2 {
+  margin-top: 20px;
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.landing-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.landing-description {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+
+.landing-button {
+  background: #ff4757;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.landing-button:hover {
+  background: #e63946;
+  transform: scale(1.1);
 }
