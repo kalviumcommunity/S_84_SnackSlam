@@ -1,0 +1,35 @@
+.snack-card {
+    background-color: #fff3e0;  /* Warm snack-themed background */
+    border: 2px solid #ff9800;  /* Orange border for a snack vibe */
+    border-radius: 12px;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    max-width: 250px;
+    margin: 20px auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .snack-card:hover {
+    transform: scale(1.05);  /* Slight zoom effect on hover */
+  }
+  
+  .snack-card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .snack-card h3 {
+    color: #e65100;  /* Deep orange for snack title */
+    font-size: 1.4rem;
+    margin: 8px 0;
+  }
+  
+  .snack-card p {
+    color: #5d4037;  /* Brownish text for rating */
+    font-weight: bold;
+  }
+  
