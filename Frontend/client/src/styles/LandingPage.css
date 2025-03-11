@@ -1,189 +1,265 @@
-/* Reset Defaults */
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-/* Full-Page Layout */
-body, html {
-    height: 100vh;
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #ff6b6b, #ffa502);
-    color: white;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    overflow: auto; /* Allow scrolling */
-}
-
-.landing-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  html, body, #root {
+    height: 100%;
+    width: 100%;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e, #ffafaf);
+    color: #2d3436;
+    overflow-x: hidden;
+  }
+  
+ /* Main Content */
+.main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    width: 100%;
-    padding: 20px;
-}
-
-/* Login Section */
-.login-container {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 50px 40px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 450px;
     text-align: center;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-}
-
-.input-field {
-    width: 100%;
-    padding: 12px 15px;
-    border: 2px solid #ff4757;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.95);
-    color: #222;
-    font-size: 1rem;
-}
-
-.input-field::placeholder {
-    color: #888;
-}
-
-.login-btn {
-    background: #ff4757;
-    border: none;
-    padding: 14px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-}
-
-.login-btn:hover {
-    background: #e63946;
-    transform: scale(1.08);
-}
-
-/* Hero Section */
-.hero-section {
-    width: 100%;
     min-height: 100vh;
+    padding: 3rem 1rem;
+  }
+  
+  .main-content h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 5px rgba(255, 71, 87, 0.8);
+  }
+  
+  .main-content p {
+    font-size: 1.3rem;
+    color: #ffeded;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* Login Page */
+  .login-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: flex-start;
+    height: 100vh;
     text-align: center;
-    padding: 40px;
-}
-
-.welcome-message {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+  }
+  
+  .landing-title {
+    font-size: 4rem;
     color: #fff;
-}
-
-.dashboard {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 30px;
-    border-radius: 15px;
+    text-shadow: 3px 3px 6px rgba(206, 54, 87, 0.5);
+    margin-bottom: 1.5rem;
+    font-family: 'Pacifico', cursive;
+  }
+  
+  .landing-description {
+    font-size: 1.4rem;
+    color: #ffeded;
+    max-width: 700px;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .input-field {
+    padding: 1rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 350px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.9);
     text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
-}
-
-.dashboard h2 {
-    margin-top: 20px;
+    outline: none;
+    margin-bottom: 1rem;
+  }
+  
+  .landing-button {
+    background: #ff6b6b;
     color: #fff;
-    font-size: 2.5rem;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .landing-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+  }
+  
+ /* Features Section */
+.features {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 3rem 0;
+    backdrop-filter: blur(10px);
+  }
+  
+  .feature-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .feature {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .feature:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+    background: linear-gradient(135deg, #ff5252, #ff7675);
+  }
+  
+ /* Trending Snacks Section */
+.trending-snacks {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    margin: 3rem 0;
+    backdrop-filter: blur(10px);
+  }
+  
+  .snack-list {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+  
+  .snack-card {
+    background: linear-gradient(135deg, #ff5252, #ff7675);
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    flex: 0 0 auto;
+  }
+  
+  .snack-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid rgba(255, 107, 107, 0.3);
+  }
+  
+  .snack-card h3 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    color: #2d3436;
+  }
+  
+  .snack-card p {
+    color: #57606f;
+    font-size: 1rem;
+    padding: 0 1rem 1rem;
+  }
+  
+  .snack-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+  }
+  .snack-card-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
-.dashboard p {
-    font-size: 1.2rem;
-    color: #ffdd57;
-    margin-top: 10px;
+.snack-card {
+    background-color: #f5e1da; /* Soft warm tone to match theme */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease;
 }
 
 .snack-card img {
     width: 100%;
-    height: auto;
-    max-width: 300px;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
 }
 
-.logout-btn {
-    background: #ff4757;
-    border: 2px solid white; /* Added border for enhanced visibility */
-    padding: 14px 30px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.3s ease;
-    margin-top: 15px; /* Ensures visibility */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    display: block; /* Ensures the button is always visible */
-}
-
-.logout-btn:hover {
-    background: #e63946;
-    transform: scale(1.08);
-}
-
-.landing-title {
-    font-size: 4rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-.landing-description {
-    font-size: 1.5rem;
-    max-width: 800px;
-    margin-bottom: 30px;
-}
-
-.landing-button {
-    background: #ff4757;
-    border: none;
-    padding: 16px 32px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s ease-in-out, transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-}
-
-.landing-button:hover {
-    background: #e63946;
-    transform: scale(1.1);
-}
-
-.feature {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.3s, background 0.3s;
-}
-
-.feature:hover {
+.snack-card:hover {
     transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.4);
-    color: #ff4757;
-    cursor: pointer;
 }
+
+.get-snack-button {
+    background-color: #ff6f61; /* Vibrant coral shade for a bold look */
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.get-snack-button:hover {
+    background-color: #e85b50; /* Slightly darker coral on hover */
+    transform: scale(1.05); /* Subtle zoom effect */
+}
+
+.get-snack-button:active {
+    transform: scale(0.98); /* Slight press effect */
+}
+
+
+  /* Logout Button */
+  .logout-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: #ff4757;
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+  }
+  
+  .logout-btn:hover {
+    background: #ff6b6b;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.15);
+    width: 100%;
+    margin-top: auto;
+    backdrop-filter: blur(5px);
+  }
+  
