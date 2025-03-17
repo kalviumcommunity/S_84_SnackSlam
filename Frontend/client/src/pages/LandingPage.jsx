@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "../styles/LandingPage.css";
 import SnackCard from "../components/Snackcard";
+import { getSnacks } from "../services/api"; // Import API function
 
 const LandingPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [showSnackCard, setShowSnackCard] = useState(false);
+  const [snacks, setSnacks] = useState([]); // Store fetched snacks
 
   useEffect(() => {
     document.title = "SnackSlam - Discover Overrated Snacks";
@@ -21,11 +23,24 @@ const LandingPage = () => {
     setIsLoggedIn(false);
     setUsername("");
     setShowSnackCard(false); // Reset SnackCard visibility on logout
+    setSnacks([]); // Clear snack data on logout
   };
 
   const handleGetSnackCard = () => {
     setShowSnackCard(true);
   };
+
+  const handleGetSnackData = async () => {
+    try {
+      const snackData = await getSnacks();
+      setSnacks(snackData);
+    } catch (error) {
+      console.error('Error fetching snacks:', error);
+      alert("Failed to fetch snack data. Check backend or network.");
+    }
+  };
+  
+
 
   const sampleSnacks = [
     {
@@ -86,8 +101,9 @@ const LandingPage = () => {
   return (
     <div className="main-content">
       <button className="logout-btn" onClick={handleLogout}>
-        Logout
-      </button>
+  🚪 Logout
+</button>
+
       <h2>Welcome, {username}! 🎉</h2>
       <p>Discover the snacks that have sparked debates worldwide!</p>
 
@@ -113,6 +129,9 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
+
+
+
 
       {/* Trending Snacks Section */}
       <section className="trending-snacks">
@@ -166,8 +185,34 @@ const LandingPage = () => {
       ))}
     </div>
   </div>
+  
 )}
 
+ {/* Backend Snack Data Section */}
+<section className="backend-snacks">
+  <h2>🍪 Snacks from Our Database</h2>
+  <p>Discover unique snacks with descriptions and origins from around the world!</p>
+
+  {/* "Get Snack Data" Button */}
+  <button className="get-snack-data-button" onClick={handleGetSnackData}>
+    🍽️ Load Snacks
+  </button>
+
+  {/* Display Backend Snack Data */}
+  {snacks.length > 0 && (
+    <div className="snack-card-section">
+      <div className="snack-card-grid">
+        {snacks.map((snack, index) => (
+          <div key={index} className="snack-card">
+            <h3>{snack.name}</h3>
+            <p><strong>Description:</strong> {snack.description}</p>
+            <p><strong>Country of Origin:</strong> {snack.country}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+</section>
       </section>
     </div>
   );
