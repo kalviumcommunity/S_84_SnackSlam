@@ -195,7 +195,7 @@ const LandingPage = () => {
 
   {/* "Get Snack Data" Button */}
   <button className="get-snack-data-button" onClick={handleGetSnackData}>
-    🍽️ Load Snacks
+    🍽️ Load Snacks 
   </button>
 
   {/* Display Backend Snack Data */}
