@@ -2,12 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const snackRoutes = require('./snackroutes');
+const cors = require('cors');
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(express.json());
+app.use(cors({
+    origin: 'http://localhost:5173/', // Allow requests from your frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true // Enable cookies or authentication headers if needed
+}));
 
 // Connect to MongoDB using Mongoose
 mongoose.connect(process.env.MONGO_URI, {
@@ -19,11 +25,10 @@ mongoose.connect(process.env.MONGO_URI, {
             console.log(`Hi, my name is Kartikay Rattan. Server is running at http://localhost:${PORT}`);
         });
         console.log('Database connected successfully');
-        // Start the server only after the DB is connected
     })
     .catch((error) => {
         console.error('Database connection failed:', error.message);
-        process.exit(1); // Exit the process with failure
+        process.exit(1);
     });
 
 // Base route
