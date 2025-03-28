@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from "react";
 import "../styles/LandingPage.css";
 import SnackCard from "../components/Snackcard";
-import { getSnacks } from "../services/api"; // Import API function
+import AddSnack from "../pages/AddSnack";
+import SnackList from "../components/SnackList";
+import { getSnacks } from "../services/api";
+import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [showSnackCard, setShowSnackCard] = useState(false);
   const [snacks, setSnacks] = useState([]); // Store fetched snacks
+  const [showAddSnack, setShowAddSnack] = useState(false);
+  const [showSnackList, setShowSnackList] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+
+const handleSnackAdded = () => {
+     setRefresh(!refresh); // Trigger refresh
+};
 
   useEffect(() => {
     document.title = "SnackSlam - Discover Overrated Snacks";
@@ -39,7 +49,8 @@ const LandingPage = () => {
       alert("Failed to fetch snack data. Check backend or network.");
     }
   };
-  
+  const handleToggleAddSnack = () => setShowAddSnack(!showAddSnack);
+  const handleToggleSnackList = () => setShowSnackList(!showSnackList);
 
 
   const sampleSnacks = [
@@ -187,6 +198,22 @@ const LandingPage = () => {
   </div>
   
 )}
+
+<section className="snack-actions">
+  <h2>🍽️ Manage Your Snacks</h2>
+  <div className="action-buttons">
+    <Link to="/add-snack" className="add-snack-btn" aria-label="Add a new snack">
+      ➕ Add Snack
+    </Link>
+
+    <Link to="/snack-list" className="view-snack-list-btn" aria-label="View snack list">
+      📋 View Snack List
+    </Link>
+    {showAddSnack && <AddSnack onSnackAdded={handleSnackAdded} />}
+    {showSnackList && <SnackList />}
+  </div>
+</section>
+
 
  {/* Backend Snack Data Section */}
 <section className="backend-snacks">

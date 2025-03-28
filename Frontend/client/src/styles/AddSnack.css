@@ -1,0 +1,70 @@
+.add-snack-container {
+    max-width: 500px;
+    margin: 70px auto;
+    padding: 40px;
+    background: linear-gradient(135deg, #f98d8d, #fcabab, #ffafaf); /* Soft pink gradient */
+    border: 2px solid #ff8e8e; /* Middle pink for border */
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(255, 107, 107, 0.4);
+    text-align: center;
+    color: #fff;
+}
+
+.add-snack-container h1 {
+    color: #fff; /* Pure white title */
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+
+.add-snack-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.add-snack-container input,
+.add-snack-container textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ff8e8e; 
+    background-color: #fff;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    color: #333; /* Dark text for better readability */
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-snack-container input:focus,
+.add-snack-container textarea:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 4px 12px rgba(255, 107, 107, 0.5);
+}
+
+.add-snack-container textarea {
+    height: 120px;
+    resize: none;
+}
+
+.add-snack-container button {
+    background: linear-gradient(135deg, #ff8e8e, #ff6b6b);
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.add-snack-container button:hover {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(255, 107, 107, 0.5);
+}
+
+.add-snack-container button:active {
+    background: #ff6b6b;
+    transform: scale(0.98);
+}
