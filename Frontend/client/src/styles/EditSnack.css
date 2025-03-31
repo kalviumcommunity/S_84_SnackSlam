@@ -1,0 +1,118 @@
+.edit-snack-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-snack-title {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.edit-snack-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-snack-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #e67e22;
+}
+
+.edit-snack-input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.edit-snack-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.edit-snack-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .edit-snack-container {
+        width: 90%;
+        padding: 15px;
+    }
+}
+.edit-snack-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff7e6; /* Light warm background */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.edit-snack-title {
+    color: #d35400; /* Rich orange color for food theme */
+    margin-bottom: 20px;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.edit-snack-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-snack-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #f39c12; /* Warm golden accent */
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fffaf1; /* Soft food-related background */
+}
+
+.edit-snack-input:focus {
+    border-color: #e67e22; /* Brighter orange for focus */
+    outline: none;
+    box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
+}
+
+.edit-snack-button {
+    background-color: #e74c3c; /* Reddish-orange for CTA */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.edit-snack-button:hover {
+    background-color: #c0392b; /* Slightly darker red on hover */
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    .edit-snack-container {
+        width: 90%;
+        padding: 15px;
+    }
+}
