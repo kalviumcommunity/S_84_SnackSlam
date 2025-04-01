@@ -5,6 +5,7 @@ import { getSnacks } from './services/api';      // Import API function
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddSnack from './pages/AddSnack';
 import SnackList from './components/SnackList';
+import EditSnack from "./pages/EditSnack";
 
 function App() {
   const [snacks, setSnacks] = useState([]);
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/" element={<LandingPage snacks={snacks}/>} />
                 <Route path="/add-snack" element={<AddSnack onSnackAdded={handleSnackAdded} />} />
                 <Route path="/snack-list" element={<SnackList />} />
+                <Route path="/edit/:id" element={<EditSnack />} />
       </Routes>
       </Router>
     </div>

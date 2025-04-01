@@ -68,3 +68,35 @@
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
 }
+
+.edit-button {
+    background-color: #f39c12; /* Golden color for edit */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.edit-button:hover {
+    background-color: #e67e22; /* Darker golden */
+}
+
+.delete-button {
+    background-color: #e74c3c; /* Reddish-orange for delete */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Darker red */
+}
