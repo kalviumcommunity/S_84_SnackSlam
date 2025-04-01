@@ -1,0 +1,70 @@
+.snack-list-container {
+    border: 3px solid #ff5252;
+    border-radius: 20px;
+    padding: 1.5rem;
+    max-width: 100%;
+    margin: 2rem auto;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevents extra spacing issues */
+}
+
+.snack-list-container h1 {
+    text-align: center;
+    color: #ff5252;
+    margin-bottom: 1rem;
+}
+
+.snack-grid-wrapper {
+    display: grid;
+    grid-auto-flow: column; /* Aligns grid items in rows */
+    grid-gap: 15px;
+    overflow-x: auto; /* Enables horizontal scrolling */
+    padding: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #ff5252 ;
+    white-space: nowrap; /* Ensures cards stay in a row */
+}
+
+.snack-grid-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.snack-grid-wrapper::-webkit-scrollbar-thumb {
+    background-color: #ff5252;
+    border-radius: 10px;
+}
+
+.snack-card {
+    background: linear-gradient(135deg, #fe5959, #fa6b6b, #f89c9c);
+    border-radius: 15px;
+    width: 200px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.snack-content {
+    text-align: center;
+    color: #fff;
+    padding: 1rem;
+}
+
+.snack-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.snack-content p {
+    font-size: 1rem;
+    margin: 4px 0;
+}
+
+.snack-card:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+}

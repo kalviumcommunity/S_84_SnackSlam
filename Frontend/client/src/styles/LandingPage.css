@@ -7,7 +7,8 @@
   }
   
   html, body, #root {
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     width: 100%;
   }
   
@@ -310,5 +311,30 @@
     width: 100%;
     margin-top: auto;
     backdrop-filter: blur(5px);
+  }
+  .snack-actions {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .add-snack-btn, .view-snack-list-btn {
+    background-color: #ff9800;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  .add-snack-btn:hover, .view-snack-list-btn:hover {
+    background-color: #e68900;
   }
   
