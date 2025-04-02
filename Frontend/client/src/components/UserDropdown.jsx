@@ -4,7 +4,7 @@ const UserDropdown = ({ onSelectUser }) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/users")
+    fetch("https://s-84-snackslam.onrender.com/api/users")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);
