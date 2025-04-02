@@ -4,8 +4,10 @@ const mongoose = require('mongoose');
 const snackSchema = new mongoose.Schema({
     name: { type: String, required: true },
     country: { type: String, required: true},
-    description: {type: String}
-});
+    description: {type: String},
+    created_by: { type: String, required: true,} 
+},{ timestamps: true })
 
 // Export the Snack model
-module.exports = mongoose.model('Snack', snackSchema);
+const Snack = mongoose.model('Snack',snackSchema)
+module.exports = Snack;
