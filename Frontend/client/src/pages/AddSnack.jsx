@@ -7,8 +7,9 @@ const AddSnack = () => {
     const [snackData, setSnackData] = useState({
         name: '',
         country: '',
-        reason: '',
-        alternative: ''
+        description: '', // Updated field name
+        alternative: '',
+        created_by: '' // Ensure this field is updated properly
     });
 
     const navigate = useNavigate(); // For redirection
@@ -21,13 +22,16 @@ const AddSnack = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            console.log("Submitting Data:", snackData); // 👀 Debugging
+    
             const response = await axios.post('https://s-84-snackslam.onrender.com/api/snacks', {
                 name: snackData.name,
-                description: snackData.reason,
                 country: snackData.country,
-                alternative: snackData.alternative
+                description: snackData.description,  // Updated field name
+                alternative: snackData.alternative,
+                created_by: snackData.created_by  // ✅ Ensure this is sent
             });
-
+    
             if (response.status === 201) {
                 alert('Snack added successfully! 🎯');
                 navigate('/snack-list');
@@ -59,9 +63,9 @@ const AddSnack = () => {
                     required
                 />
                 <textarea
-                    name="reason"
-                    placeholder="Why Overrated?"
-                    value={snackData.reason}
+                    name="description"
+                    placeholder="Description"
+                    value={snackData.description}
                     onChange={handleChange}
                     required
                 />
@@ -70,6 +74,14 @@ const AddSnack = () => {
                     name="alternative"
                     placeholder="Alternative Snack Suggestion"
                     value={snackData.alternative}
+                    onChange={handleChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="created_by"
+                    placeholder="Your Name (Creator)"
+                    value={snackData.created_by}
                     onChange={handleChange}
                     required
                 />
