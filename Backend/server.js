@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const snackRoutes = require('./snackroutes');
+const mysqlData = require('./routes/SqlSnack');
 const cors = require('cors');
 
 const app = express();
@@ -43,3 +44,4 @@ app.get('/ping', (req, res) => {
 
 // Use the routes from snackRoutes.js
 app.use('/api', snackRoutes);
+app.use('/sql', mysqlData);
