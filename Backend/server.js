@@ -1,47 +1,50 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const snackRoutes = require('./snackroutes');
 const mysqlData = require('./routes/SqlSnack');
-const cors = require('cors');
+const authRoutes = require('./routes/auth');
 
 const app = express();
-const PORT = 3000;
+const PORT =  3000;
 
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['http://localhost:5173','https://asap-snackslam.netlify.app'], // Allow requests from your frontend
+    origin: ['http://localhost:5173', 'https://asap-snackslam.netlify.app'], // Allowed frontend origins
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true // Enable cookies or authentication headers if needed
+    credentials: true // Allow cookies and authentication headers
 }));
 
-// Connect to MongoDB using Mongoose
+// MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-    .then(() => {
-        app.listen(PORT, () => {
-            console.log(`Hi, my name is Kartikay Rattan. Server is running at http://localhost:${PORT}`);
-        });
-        console.log('Database connected successfully');
-    })
-    .catch((error) => {
-        console.error('Database connection failed:', error.message);
-        process.exit(1);
+.then(() => {
+    console.log('✅ MongoDB Connected Successfully');
+    app.listen(PORT, () => {
+        console.log(`🚀 Server is running at http://localhost:${PORT}`);
     });
+})
+.catch((error) => {
+    console.error('❌ MongoDB Connection Failed:', error.message);
+    process.exit(1);
+});
 
-// Base route
+// Routes
 app.get('/', (req, res) => {
-    res.send(`<h1>Welcome to SnackSlam API!</h1>`);
+    res.send(`<h1>Welcome to SnackSlam API 🎉</h1><p>Your go-to snack rating platform!</p>`);
 });
 
-// Ping route
 app.get('/ping', (req, res) => {
-    res.send('Pong!');
+    res.send('Pong! 🏓');
 });
 
-// Use the routes from snackRoutes.js
-app.use('/api', snackRoutes);
-app.use('/sql', mysqlData);
+// API Routes
+app.use('/api/snacks', snackRoutes); // Adjusted path for better API structure
+app.use('/api/auth', authRoutes);
+app.use('/api/sql', mysqlData); // Unified API path structure
+
+module.exports = app;
