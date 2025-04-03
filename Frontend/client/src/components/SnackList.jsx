@@ -26,7 +26,7 @@ const SnackList = () => {
                 setCreators(uniqueCreators);
 
                 // Fetch users from MySQL
-                const userResponse = await axios.get("https://s-84-snackslam.onrender.com/sql/users");
+                const userResponse = await axios.get("https://s-84-snackslam.onrender.com/api/sql/users");
                 setUsers(userResponse.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -52,7 +52,7 @@ const SnackList = () => {
     useEffect(() => {
         if (selectedUser) {
             axios
-                .get(`https://s-84-snackslam.onrender.com/sql/by-user/${selectedUser}`)
+                .get(`https://s-84-snackslam.onrender.com/api/sql/by-user/${selectedUser}`)
                 .then((response) => {
                     setFilteredSnacks(response.data);
                 })

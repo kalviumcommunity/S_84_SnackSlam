@@ -22,16 +22,25 @@ const handleSnackAdded = () => {
 useEffect(() => {
   document.title = "SnackSlam - Discover Overrated Snacks";
   const checkAuth = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/api/auth/check-auth", {
-        withCredentials: true,
-        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-      });
-      console.log("Auth Status:", response.data);
-    } catch (error) {
-      console.error("Auth check failed", error);
+  try {
+    const token = localStorage.getItem("token"); // Retrieve token from localStorage
+
+    if (!token) {
+      console.error("No token found, user is not logged in.");
+      return;
     }
-  };
+
+    const response = await axios.get("http://localhost:3000/api/auth/check-auth", {
+      headers: { Authorization: `Bearer ${token}` },
+      withCredentials: true, // Ensure cookies are sent if needed
+    });
+
+    console.log("User is authenticated:", response.data);
+  } catch (error) {
+    console.error("Auth check failed", error);
+  }
+};
+
 
   checkAuth();
 }, []);
