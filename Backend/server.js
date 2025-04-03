@@ -43,7 +43,7 @@ app.get('/ping', (req, res) => {
 });
 
 // API Routes
-app.use('/api/snacks', snackRoutes); // Adjusted path for better API structure
+app.use('/api', snackRoutes); // Adjusted path for better API structure
 app.use('/api/auth', authRoutes);
 app.use('/api/sql', mysqlData); // Unified API path structure
 
