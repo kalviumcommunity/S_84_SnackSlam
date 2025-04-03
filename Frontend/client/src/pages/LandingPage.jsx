@@ -5,7 +5,7 @@ import AddSnack from "../pages/AddSnack";
 import SnackList from "../components/SnackList";
 import { getSnacks } from "../services/api";
 import { Link } from 'react-router-dom';
-
+import axios from "axios";
 const LandingPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
@@ -19,22 +19,49 @@ const handleSnackAdded = () => {
      setRefresh(!refresh); // Trigger refresh
 };
 
-  useEffect(() => {
-    document.title = "SnackSlam - Discover Overrated Snacks";
-  }, []);
-
-  const handleLogin = () => {
-    if (username) {
-      setIsLoggedIn(true);
+useEffect(() => {
+  document.title = "SnackSlam - Discover Overrated Snacks";
+  const checkAuth = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/auth/check-auth", {
+        withCredentials: true,
+        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      });
+      console.log("Auth Status:", response.data);
+    } catch (error) {
+      console.error("Auth check failed", error);
     }
   };
 
-  const handleLogout = () => {
-    setIsLoggedIn(false);
-    setUsername("");
-    setShowSnackCard(false); // Reset SnackCard visibility on logout
-    setSnacks([]); // Clear snack data on logout
-  };
+  checkAuth();
+}, []);
+
+
+const handleLogin = async () => {
+  try {
+      const response = await axios.post(
+          "http://localhost:3000/api/auth/login",
+          { username },
+          { withCredentials: true }
+      );
+      setIsLoggedIn(true);
+      setUsername(response.data.username);
+  } catch (error) {
+      alert("Login failed. Try again.");
+  }
+};
+
+
+const handleLogout = async () => {
+  try {
+      await axios.post("http://localhost:3000/api/auth/logout", {}, { withCredentials: true });
+      setIsLoggedIn(false);
+      setUsername("");
+  } catch (error) {
+      alert("Logout failed. Try again.");
+  }
+};
+
 
   const handleGetSnackCard = () => {
     setShowSnackCard(true);
@@ -100,7 +127,7 @@ const handleSnackAdded = () => {
         <button
           className="landing-button"
           onClick={handleLogin}
-          disabled={!username}
+          disabled={!username.trim()}
         >
           🚀 Start Exploring
         </button>
@@ -108,12 +135,11 @@ const handleSnackAdded = () => {
     );
   }
 
-  // Main Content (Visible after Login)
   return (
     <div className="main-content">
       <button className="logout-btn" onClick={handleLogout}>
-  🚪 Logout
-</button>
+        🚪 Logout
+      </button>
 
       <h2>Welcome, {username}! 🎉</h2>
       <p>Discover the snacks that have sparked debates worldwide!</p>
